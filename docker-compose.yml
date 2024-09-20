@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+  server1:
+      build:
+        context: ./server1
+      ports:
+        - "3000:3000"
+      networks:
+        - my-network
+  server2:
+      build:
+        context: ./server2
+      ports:
+        - "3001:3001"
+      networks:
+        - my-network
+
+networks:
+  my-network:
+    driver: bridge
