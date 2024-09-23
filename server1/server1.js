@@ -5,7 +5,9 @@ const app = express()
 app.use(express.json())
 
 app.get('*', async (req, res)=>{
-    return res.status(200).json({message: 'Olá, server 1'});
+    setTimeout(()=>{
+        return res.status(200).json({message: 'Olá, server 1'});
+    }, 5000)
 })
 
 app.listen(3000, ()=>{
